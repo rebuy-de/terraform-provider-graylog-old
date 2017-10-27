@@ -3,7 +3,7 @@ package main
 import (
 	log "github.com/Sirupsen/logrus"
 
-	"github.com/rebuy-de/golang-template/example/cmd"
+	"github.com/rebuy-de/terraform-provider-graylog/cmd"
 )
 
 func main() {

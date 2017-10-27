@@ -21,8 +21,8 @@ WORKDIR /go/src/github.com/Masterminds/glide
 RUN git checkout v0.12.3
 RUN go install
 
-COPY . /go/src/github.com/rebuy-de/golang-template/example
-WORKDIR /go/src/github.com/rebuy-de/golang-template/example
+COPY . /go/src/github.com/rebuy-de/terraform-provider-graylog
+WORKDIR /go/src/github.com/rebuy-de/terraform-provider-graylog
 RUN CGO_ENABLED=0 make install
 
-ENTRYPOINT ["/go/bin/example"]
+ENTRYPOINT ["/go/bin/terraform-provider-graylog"]
