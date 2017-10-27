@@ -1,0 +1,629 @@
+2017/10/28 00:04:32 [INFO] Terraform version: 0.10.2 rebuy4 93c6e834404179651b009e6eefe73f4827d5a441+CHANGES
+2017/10/28 00:04:32 [INFO] Go runtime version: go1.8.3
+2017/10/28 00:04:32 [INFO] CLI args: []string{"/home/sven/Data/Applications/bin/terraform", "apply", "-auto-approve=false"}
+2017/10/28 00:04:32 [DEBUG] Attempting to open CLI config file: /home/sven/.terraformrc
+2017/10/28 00:04:32 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2017/10/28 00:04:32 [INFO] CLI command args: []string{"apply", "-auto-approve=false"}
+2017/10/28 00:04:32 [INFO] command: empty terraform config, returning nil
+2017/10/28 00:04:32 [DEBUG] command: no data state file found for backend config
+2017/10/28 00:04:32 [DEBUG] New state was assigned lineage "aa8669e7-a346-4d84-9348-c3efc96d92bf"
+2017/10/28 00:04:32 [INFO] command: backend initialized: <nil>
+2017/10/28 00:04:32 [DEBUG] checking for provider in "."
+2017/10/28 00:04:32 [DEBUG] checking for provider in "/home/sven/Data/Applications/bin"
+2017/10/28 00:04:32 [DEBUG] checking for provider in "terraform.d/plugins/linux_amd64"
+2017/10/28 00:04:32 [WARNING] found legacy provider "terraform-provider-graylog"
+2017/10/28 00:04:32 [DEBUG] checking for provider in ".terraform/plugins/linux_amd64"
+2017/10/28 00:04:32 [DEBUG] checking for provider in "/home/sven/.terraform.d/plugins"
+2017/10/28 00:04:32 [DEBUG] checking for provider in "/home/sven/.terraform.d/plugins/linux_amd64"
+2017/10/28 00:04:32 [DEBUG] found provider "terraform-provider-aws_v0.1.4-mike_x4"
+2017/10/28 00:04:32 [DEBUG] found provider "terraform-provider-aws_v0.1.4-rebuy1_x4"
+2017/10/28 00:04:32 [DEBUG] found provider "terraform-provider-aws_v0.1.4-rebuy2_x4"
+2017/10/28 00:04:32 [DEBUG] found provider "terraform-provider-aws_v0.1.4-rebuy4_x4"
+2017/10/28 00:04:32 [DEBUG] found provider "terraform-provider-random_v0.1.0_x4"
+2017/10/28 00:04:32 [DEBUG] found provider "terraform-provider-template_v0.1.1_x4"
+2017/10/28 00:04:32 [DEBUG] found provider "terraform-provider-terraform_v0.1.0-rebuy2_x4"
+2017/10/28 00:04:32 [DEBUG] found provider "terraform-provider-tls_v0.1.0_x4"
+2017/10/28 00:04:32 [DEBUG] found valid plugin: "aws"
+2017/10/28 00:04:32 [DEBUG] found valid plugin: "aws"
+2017/10/28 00:04:32 [DEBUG] found valid plugin: "random"
+2017/10/28 00:04:32 [DEBUG] found valid plugin: "tls"
+2017/10/28 00:04:32 [DEBUG] found valid plugin: "template"
+2017/10/28 00:04:32 [DEBUG] found valid plugin: "terraform"
+2017/10/28 00:04:32 [DEBUG] found valid plugin: "aws"
+2017/10/28 00:04:32 [DEBUG] found valid plugin: "aws"
+2017/10/28 00:04:32 [DEBUG] found valid plugin: "graylog"
+2017/10/28 00:04:32 [DEBUG] checking for provisioner in "."
+2017/10/28 00:04:32 [DEBUG] checking for provisioner in "/home/sven/Data/Applications/bin"
+2017/10/28 00:04:32 [DEBUG] checking for provisioner in "terraform.d/plugins/linux_amd64"
+2017/10/28 00:04:32 [DEBUG] checking for provisioner in ".terraform/plugins/linux_amd64"
+2017/10/28 00:04:32 [DEBUG] checking for provisioner in "/home/sven/.terraform.d/plugins"
+2017/10/28 00:04:32 [DEBUG] checking for provisioner in "/home/sven/.terraform.d/plugins/linux_amd64"
+2017/10/28 00:04:32 [INFO] command: backend <nil> is not enhanced, wrapping in local
+2017/10/28 00:04:32 [INFO] backend/local: starting Apply operation
+2017/10/28 00:04:32 [TRACE] Preserving existing state lineage "959f9d94-5f98-4d50-a64c-f5e6d88c9a9f"
+2017/10/28 00:04:32 [TRACE] Preserving existing state lineage "959f9d94-5f98-4d50-a64c-f5e6d88c9a9f"
+2017/10/28 00:04:32 [INFO] terraform: building graph: GraphTypeInput
+2017/10/28 00:04:32 [TRACE] ConfigTransformer: Starting for path: []
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.OutputTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.OrphanResourceTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+2017/10/28 00:04:32 [TRACE] AttachResourceConfigTransformer: Beginning...
+2017/10/28 00:04:32 [TRACE] AttachResourceConfigTransformer: Attach resource config request: graylog_input.gelf_udp
+2017/10/28 00:04:32 [TRACE] Attaching resource config: &config.Resource{Mode:0, Name:"gelf_udp", Type:"graylog_input", RawCount:(*config.RawConfig)(0xc4202cc9c0), RawConfig:(*config.RawConfig)(0xc4202cc420), Provisioners:[]*config.Provisioner(nil), Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.AttachResourceConfigTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+2017/10/28 00:04:32 [DEBUG] Attaching resource state to "graylog_input.gelf_udp": &terraform.ResourceState{Type:"graylog_input", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc4202f46e0), Deposed:[]*terraform.InstanceState{}, Provider:"", mu:sync.Mutex{state:0, sema:0x0}}
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.RootVariableTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.DisableProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ParentProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Attach provider request: []string{} graylog
+2017/10/28 00:04:32 [TRACE] Attaching provider config: *config.ProviderConfig{Name:"graylog", Alias:"", Version:"", RawConfig:(*config.RawConfig)(0xc4202cc0c0)}
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.AttachProviderConfigTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ModuleVariableTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [DEBUG] ReferenceTransformer: "graylog_input.gelf_udp" references: []
+2017/10/28 00:04:32 [DEBUG] ReferenceTransformer: "provider.graylog" references: []
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.CountBoundaryTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog (close) - *terraform.graphNodeCloseProvider
+  graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.CloseProvisionerTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog (close) - *terraform.graphNodeCloseProvider
+  graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.RootTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog (close) - *terraform.graphNodeCloseProvider
+  graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.graylog (close) - *terraform.graphNodeCloseProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeAbstractResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeAbstractResource
+provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog (close) - *terraform.graphNodeCloseProvider
+  graylog_input.gelf_udp - *terraform.NodeAbstractResource
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.graylog (close) - *terraform.graphNodeCloseProvider
+2017/10/28 00:04:32 [DEBUG] Starting graph walk: walkInput
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "root"
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "provider.graylog"
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "meta.count-boundary (count boundary fixup)"
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "provider.graylog (close)"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "provider.graylog (close)" waiting on "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "root" waiting on "meta.count-boundary (count boundary fixup)"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "root" waiting on "provider.graylog (close)"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "graylog_input.gelf_udp" waiting on "provider.graylog"
+2017/10/28 00:04:32 [TRACE] dag/walk: dependencies changed for "meta.count-boundary (count boundary fixup)", sending new deps
+2017/10/28 00:04:32 [TRACE] dag/walk: dependencies changed for "provider.graylog (close)", sending new deps
+2017/10/28 00:04:32 [TRACE] dag/walk: dependencies changed for "root", sending new deps
+2017/10/28 00:04:32 [TRACE] dag/walk: dependencies changed for "graylog_input.gelf_udp", sending new deps
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "provider.graylog"
+2017/10/28 00:04:32 [TRACE] vertex 'root.provider.graylog': walking
+2017/10/28 00:04:32 [TRACE] vertex 'root.provider.graylog': evaluating
+2017/10/28 00:04:32 [TRACE] [walkInput] Entering eval tree: provider.graylog
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSequence
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalInitProvider
+2017-10-28T00:04:32.597+0200 [DEBUG] plugin: starting plugin: path=/home/sven/Data/Projects/src/github.com/rebuy-de/terraform-provider-graylog/example/terraform.d/plugins/linux_amd64/terraform-provider-graylog args=[/home/sven/Data/Projects/src/github.com/rebuy-de/terraform-provider-graylog/example/terraform.d/plugins/linux_amd64/terraform-provider-graylog]
+2017-10-28T00:04:32.597+0200 [DEBUG] plugin: waiting for RPC address: path=/home/sven/Data/Projects/src/github.com/rebuy-de/terraform-provider-graylog/example/terraform.d/plugins/linux_amd64/terraform-provider-graylog
+2017-10-28T00:04:32.602+0200 [DEBUG] plugin.terraform-provider-graylog: plugin address: timestamp=2017-10-28T00:04:32.602+0200 network=unix address=/tmp/plugin499821267
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalOpFilter
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSequence
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalGetProvider
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalInterpolate
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalBuildProviderConfig
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalInputProvider
+2017/10/28 00:04:32 [TRACE] root: eval: terraform.EvalNoop
+2017/10/28 00:04:32 [TRACE] root: eval: terraform.EvalNoop
+2017/10/28 00:04:32 [TRACE] root: eval: terraform.EvalNoop
+2017/10/28 00:04:32 [TRACE] [walkInput] Exiting eval tree: provider.graylog
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] vertex 'root.graylog_input.gelf_udp': walking
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "provider.graylog (close)"
+2017/10/28 00:04:32 [TRACE] vertex 'root.provider.graylog (close)': walking
+2017/10/28 00:04:32 [TRACE] vertex 'root.provider.graylog (close)': evaluating
+2017/10/28 00:04:32 [TRACE] [walkInput] Entering eval tree: provider.graylog (close)
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalCloseProvider
+2017/10/28 00:04:32 [TRACE] [walkInput] Exiting eval tree: provider.graylog (close)
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "meta.count-boundary (count boundary fixup)"
+2017/10/28 00:04:32 [TRACE] vertex 'root.meta.count-boundary (count boundary fixup)': walking
+2017/10/28 00:04:32 [TRACE] vertex 'root.meta.count-boundary (count boundary fixup)': evaluating
+2017/10/28 00:04:32 [TRACE] [walkInput] Entering eval tree: meta.count-boundary (count boundary fixup)
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundaryGlobal
+2017/10/28 00:04:32 [TRACE] EvalCountFixZeroOneBoundaryGlobal: count 1, search "graylog_input.gelf_udp.0", replace "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] [walkInput] Exiting eval tree: meta.count-boundary (count boundary fixup)
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "root"
+2017/10/28 00:04:32 [TRACE] vertex 'root.root': walking
+2017/10/28 00:04:32 [INFO] terraform: building graph: GraphTypeValidate
+2017/10/28 00:04:32 [TRACE] ConfigTransformer: Starting for path: []
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.OutputTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.OrphanResourceTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+2017/10/28 00:04:32 [TRACE] AttachResourceConfigTransformer: Beginning...
+2017/10/28 00:04:32 [TRACE] AttachResourceConfigTransformer: Attach resource config request: graylog_input.gelf_udp
+2017/10/28 00:04:32 [TRACE] Attaching resource config: &config.Resource{Mode:0, Name:"gelf_udp", Type:"graylog_input", RawCount:(*config.RawConfig)(0xc4202cc9c0), RawConfig:(*config.RawConfig)(0xc4202cc420), Provisioners:[]*config.Provisioner(nil), Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.AttachResourceConfigTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+2017/10/28 00:04:32 [DEBUG] Attaching resource state to "graylog_input.gelf_udp": &terraform.ResourceState{Type:"graylog_input", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc4202f46e0), Deposed:[]*terraform.InstanceState{}, Provider:"", mu:sync.Mutex{state:0, sema:0x0}}
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.RootVariableTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.DisableProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ParentProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Attach provider request: []string{} graylog
+2017/10/28 00:04:32 [TRACE] Attaching provider config: *config.ProviderConfig{Name:"graylog", Alias:"", Version:"", RawConfig:(*config.RawConfig)(0xc4202cc0c0)}
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.AttachProviderConfigTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.graphTransformerMulti:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ModuleVariableTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [DEBUG] ReferenceTransformer: "graylog_input.gelf_udp" references: []
+2017/10/28 00:04:32 [DEBUG] ReferenceTransformer: "provider.graylog" references: []
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.CountBoundaryTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog (close) - *terraform.graphNodeCloseProvider
+  graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.CloseProvisionerTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog (close) - *terraform.graphNodeCloseProvider
+  graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.RootTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog (close) - *terraform.graphNodeCloseProvider
+  graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.graylog (close) - *terraform.graphNodeCloseProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResource
+  provider.graylog - *terraform.NodeApplyableProvider
+meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  graylog_input.gelf_udp - *terraform.NodeValidatableResource
+provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog (close) - *terraform.graphNodeCloseProvider
+  graylog_input.gelf_udp - *terraform.NodeValidatableResource
+root - terraform.graphNodeRoot
+  meta.count-boundary (count boundary fixup) - *terraform.NodeCountBoundary
+  provider.graylog (close) - *terraform.graphNodeCloseProvider
+2017/10/28 00:04:32 [DEBUG] Starting graph walk: walkValidate
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "provider.graylog"
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "meta.count-boundary (count boundary fixup)"
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "provider.graylog (close)"
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "root"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "root" waiting on "meta.count-boundary (count boundary fixup)"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "root" waiting on "provider.graylog (close)"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "graylog_input.gelf_udp" waiting on "provider.graylog"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "meta.count-boundary (count boundary fixup)" waiting on "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "provider.graylog (close)" waiting on "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] dag/walk: dependencies changed for "root", sending new deps
+2017/10/28 00:04:32 [TRACE] dag/walk: dependencies changed for "graylog_input.gelf_udp", sending new deps
+2017/10/28 00:04:32 [TRACE] dag/walk: dependencies changed for "meta.count-boundary (count boundary fixup)", sending new deps
+2017/10/28 00:04:32 [TRACE] dag/walk: dependencies changed for "provider.graylog (close)", sending new deps
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "provider.graylog"
+2017/10/28 00:04:32 [TRACE] vertex 'root.provider.graylog': walking
+2017/10/28 00:04:32 [TRACE] vertex 'root.provider.graylog': evaluating
+2017/10/28 00:04:32 [TRACE] [walkValidate] Entering eval tree: provider.graylog
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSequence
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalInitProvider
+2017/10/28 00:04:32 [TRACE] root: eval: terraform.EvalNoop
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalOpFilter
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSequence
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalGetProvider
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalInterpolate
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalBuildProviderConfig
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalValidateProvider
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSetProviderConfig
+2017/10/28 00:04:32 [TRACE] root: eval: terraform.EvalNoop
+2017/10/28 00:04:32 [TRACE] root: eval: terraform.EvalNoop
+2017/10/28 00:04:32 [TRACE] [walkValidate] Exiting eval tree: provider.graylog
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] vertex 'root.graylog_input.gelf_udp': walking
+2017/10/28 00:04:32 [TRACE] vertex 'root.graylog_input.gelf_udp': evaluating
+2017/10/28 00:04:32 [TRACE] [walkValidate] Entering eval tree: graylog_input.gelf_udp
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSequence
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalInterpolate
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalIf
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalValidateCount
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2017/10/28 00:04:32 [TRACE] [walkValidate] Exiting eval tree: graylog_input.gelf_udp
+2017/10/28 00:04:32 [TRACE] vertex 'root.graylog_input.gelf_udp': expanding/walking dynamic subgraph
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResourceInstance
+2017/10/28 00:04:32 [DEBUG] Attaching resource state to "graylog_input.gelf_udp": &terraform.ResourceState{Type:"graylog_input", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc4202f46e0), Deposed:[]*terraform.InstanceState{}, Provider:"", mu:sync.Mutex{state:0, sema:0x0}}
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResourceInstance
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResourceInstance
+2017/10/28 00:04:32 [DEBUG] ReferenceTransformer: "graylog_input.gelf_udp" references: []
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResourceInstance
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.RootTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeValidatableResourceInstance
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] vertex 'root.graylog_input.gelf_udp': walking
+2017/10/28 00:04:32 [TRACE] vertex 'root.graylog_input.gelf_udp': evaluating
+2017/10/28 00:04:32 [TRACE] [walkValidate] Entering eval tree: graylog_input.gelf_udp
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSequence
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalValidateResourceSelfRef
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalGetProvider
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalInterpolate
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalValidateResource
+2017/10/28 00:04:32 [TRACE] [walkValidate] Exiting eval tree: graylog_input.gelf_udp
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "meta.count-boundary (count boundary fixup)"
+2017/10/28 00:04:32 [TRACE] vertex 'root.meta.count-boundary (count boundary fixup)': walking
+2017/10/28 00:04:32 [TRACE] vertex 'root.meta.count-boundary (count boundary fixup)': evaluating
+2017/10/28 00:04:32 [TRACE] [walkValidate] Entering eval tree: meta.count-boundary (count boundary fixup)
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundaryGlobal
+2017/10/28 00:04:32 [TRACE] EvalCountFixZeroOneBoundaryGlobal: count 1, search "graylog_input.gelf_udp.0", replace "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] [walkValidate] Exiting eval tree: meta.count-boundary (count boundary fixup)
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "provider.graylog (close)"
+2017/10/28 00:04:32 [TRACE] vertex 'root.provider.graylog (close)': walking
+2017/10/28 00:04:32 [TRACE] vertex 'root.provider.graylog (close)': evaluating
+2017/10/28 00:04:32 [TRACE] [walkValidate] Entering eval tree: provider.graylog (close)
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalCloseProvider
+2017/10/28 00:04:32 [TRACE] [walkValidate] Exiting eval tree: provider.graylog (close)
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "root"
+2017/10/28 00:04:32 [TRACE] vertex 'root.root': walking
+2017/10/28 00:04:32 [INFO] backend/local: apply calling Refresh
+2017/10/28 00:04:32 [INFO] terraform: building graph: GraphTypeRefresh
+2017/10/28 00:04:32 [TRACE] ConfigTransformer: Starting for path: []
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+2017/10/28 00:04:32 [TRACE] ConfigTransformer: Starting for path: []
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ConfigTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.OrphanResourceTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+2017/10/28 00:04:32 [DEBUG] Attaching resource state to "graylog_input.gelf_udp": &terraform.ResourceState{Type:"graylog_input", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc4203a25f0), Deposed:[]*terraform.InstanceState{}, Provider:"", mu:sync.Mutex{state:0, sema:0x0}}
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+2017/10/28 00:04:32 [TRACE] AttachResourceConfigTransformer: Beginning...
+2017/10/28 00:04:32 [TRACE] AttachResourceConfigTransformer: Attach resource config request: graylog_input.gelf_udp
+2017/10/28 00:04:32 [TRACE] Attaching resource config: &config.Resource{Mode:0, Name:"gelf_udp", Type:"graylog_input", RawCount:(*config.RawConfig)(0xc4202cc9c0), RawConfig:(*config.RawConfig)(0xc4202cc420), Provisioners:[]*config.Provisioner(nil), Provider:"", DependsOn:[]string(nil), Lifecycle:config.ResourceLifecycle{CreateBeforeDestroy:false, PreventDestroy:false, IgnoreChanges:[]string(nil)}}
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.AttachResourceConfigTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.RootVariableTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.MissingProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.DisableProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ParentProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Attach provider request: []string{} graylog
+2017/10/28 00:04:32 [TRACE] Attaching provider config: *config.ProviderConfig{Name:"graylog", Alias:"", Version:"", RawConfig:(*config.RawConfig)(0xc4202cc0c0)}
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.AttachProviderConfigTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.OutputTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ModuleVariableTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [DEBUG] ReferenceTransformer: "graylog_input.gelf_udp" references: []
+2017/10/28 00:04:32 [DEBUG] ReferenceTransformer: "provider.graylog" references: []
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.CloseProviderTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog (close) - *terraform.graphNodeCloseProvider
+  graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.RootTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog (close) - *terraform.graphNodeCloseProvider
+  graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.TransitiveReductionTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+  provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog - *terraform.NodeApplyableProvider
+provider.graylog (close) - *terraform.graphNodeCloseProvider
+  graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResource
+2017/10/28 00:04:32 [DEBUG] Starting graph walk: walkRefresh
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "provider.graylog (close)"
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "provider.graylog"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "provider.graylog (close)" waiting on "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] dag/walk: added edge: "graylog_input.gelf_udp" waiting on "provider.graylog"
+2017/10/28 00:04:32 [TRACE] dag/walk: dependencies changed for "provider.graylog (close)", sending new deps
+2017/10/28 00:04:32 [TRACE] dag/walk: dependencies changed for "graylog_input.gelf_udp", sending new deps
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "provider.graylog"
+2017/10/28 00:04:32 [TRACE] vertex 'root.provider.graylog': walking
+2017/10/28 00:04:32 [TRACE] vertex 'root.provider.graylog': evaluating
+2017/10/28 00:04:32 [TRACE] [walkRefresh] Entering eval tree: provider.graylog
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSequence
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalInitProvider
+2017/10/28 00:04:32 [TRACE] root: eval: terraform.EvalNoop
+2017/10/28 00:04:32 [TRACE] root: eval: terraform.EvalNoop
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalOpFilter
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSequence
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalGetProvider
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalInterpolate
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalBuildProviderConfig
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSetProviderConfig
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalOpFilter
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSequence
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalConfigProvider
+2017/10/28 00:04:32 [TRACE] [walkRefresh] Exiting eval tree: provider.graylog
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] vertex 'root.graylog_input.gelf_udp': walking
+2017/10/28 00:04:32 [TRACE] vertex 'root.graylog_input.gelf_udp': evaluating
+2017/10/28 00:04:32 [TRACE] [walkRefresh] Entering eval tree: graylog_input.gelf_udp
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSequence
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalInterpolate
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalCountCheckComputed
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalIf
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalCountFixZeroOneBoundary
+2017/10/28 00:04:32 [TRACE] [walkRefresh] Exiting eval tree: graylog_input.gelf_udp
+2017/10/28 00:04:32 [TRACE] vertex 'root.graylog_input.gelf_udp': expanding/walking dynamic subgraph
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ResourceCountTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResourceInstance
+2017/10/28 00:04:32 [TRACE] OrphanResourceCount: Starting...
+2017/10/28 00:04:32 [TRACE] OrphanResourceCount: Checking: graylog_input.gelf_udp
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.OrphanResourceCountTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResourceInstance
+2017/10/28 00:04:32 [DEBUG] Attaching resource state to "graylog_input.gelf_udp": &terraform.ResourceState{Type:"graylog_input", Dependencies:[]string{}, Primary:(*terraform.InstanceState)(0xc4203a25f0), Deposed:[]*terraform.InstanceState{}, Provider:"", mu:sync.Mutex{state:0, sema:0x0}}
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.AttachStateTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResourceInstance
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.TargetsTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResourceInstance
+2017/10/28 00:04:32 [DEBUG] ReferenceTransformer: "graylog_input.gelf_udp" references: []
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.ReferenceTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResourceInstance
+2017/10/28 00:04:32 [TRACE] Graph after step *terraform.RootTransformer:
+
+graylog_input.gelf_udp - *terraform.NodeRefreshableManagedResourceInstance
+2017/10/28 00:04:32 [TRACE] dag/walk: added new vertex: "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] dag/walk: walking "graylog_input.gelf_udp"
+2017/10/28 00:04:32 [TRACE] vertex 'root.graylog_input.gelf_udp': walking
+2017/10/28 00:04:32 [TRACE] vertex 'root.graylog_input.gelf_udp': evaluating
+2017/10/28 00:04:32 [TRACE] [walkRefresh] Entering eval tree: graylog_input.gelf_udp
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalSequence
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalGetProvider
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalReadState
+2017/10/28 00:04:32 [TRACE] root: eval: *terraform.EvalRefresh
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: panic: interface conversion: interface {} is nil, not string
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: 
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: goroutine 26 [running]:
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: main.resourceGraylogInputRead(0xc420319420, 0xcba160, 0xc4203ec150, 0x0, 0x13bc0c0)
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: 	/home/sven/Data/Projects/src/github.com/rebuy-de/terraform-provider-graylog/main.go:148 +0x211
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: github.com/rebuy-de/terraform-provider-graylog/vendor/github.com/hashicorp/terraform/helper/schema.(*Resource).Refresh(0xc4203a1320, 0xc4202c0410, 0xcba160, 0xc4203ec150, 0xc420374be8, 0x1, 0x800202c3d10)
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: 	/home/sven/Data/Projects/src/github.com/rebuy-de/terraform-provider-graylog/vendor/github.com/hashicorp/terraform/helper/schema/resource.go:321 +0x199
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: github.com/rebuy-de/terraform-provider-graylog/vendor/github.com/hashicorp/terraform/helper/schema.(*Provider).Refresh(0xc4203c8850, 0xc4202c03c0, 0xc4202c0410, 0x7fad6f6d2d90, 0x0, 0x18)
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: 	/home/sven/Data/Projects/src/github.com/rebuy-de/terraform-provider-graylog/vendor/github.com/hashicorp/terraform/helper/schema/provider.go:308 +0x9a
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: github.com/rebuy-de/terraform-provider-graylog/vendor/github.com/hashicorp/terraform/plugin.(*ResourceProviderServer).Refresh(0xc42036b360, 0xc4202c73e0, 0xc4202c7630, 0x0, 0x0)
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: 	/home/sven/Data/Projects/src/github.com/rebuy-de/terraform-provider-graylog/vendor/github.com/hashicorp/terraform/plugin/resource_provider.go:549 +0x4e
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: reflect.Value.call(0xc420313140, 0xc420376518, 0x13, 0xda0e94, 0x4, 0xc420301f20, 0x3, 0x3, 0x0, 0x0, ...)
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: 	/home/sven/Data/Applications/golang/src/reflect/value.go:434 +0x905
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: reflect.Value.Call(0xc420313140, 0xc420376518, 0x13, 0xc420321f20, 0x3, 0x3, 0x0, 0x0, 0x0)
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: 	/home/sven/Data/Applications/golang/src/reflect/value.go:302 +0xa4
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: net/rpc.(*service).call(0xc420369700, 0xc4203c0410, 0xc42037ebc0, 0xc4203de480, 0xc4202c53c0, 0xc20500, 0xc4202c73e0, 0x16, 0xc20540, 0xc4202c7630, ...)
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: 	/home/sven/Data/Applications/golang/src/net/rpc/server.go:381 +0x142
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: created by net/rpc.(*Server).ServeCodec
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin.terraform-provider-graylog: 	/home/sven/Data/Applications/golang/src/net/rpc/server.go:475 +0x36b
+2017/10/28 00:04:32 [ERROR] root: eval: *terraform.EvalRefresh, err: graylog_input.gelf_udp: unexpected EOF
+2017/10/28 00:04:32 [ERROR] root: eval: *terraform.EvalSequence, err: graylog_input.gelf_udp: unexpected EOF
+2017/10/28 00:04:32 [TRACE] [walkRefresh] Exiting eval tree: graylog_input.gelf_udp
+2017-10-28T00:04:32.612+0200 [DEBUG] plugin: plugin process exited: path=/home/sven/Data/Projects/src/github.com/rebuy-de/terraform-provider-graylog/example/terraform.d/plugins/linux_amd64/terraform-provider-graylog
+2017/10/28 00:04:32 [TRACE] dag/walk: upstream errored, not walking "provider.graylog (close)"
+2017/10/28 00:04:32 [DEBUG] plugin: waiting for all plugin processes to complete...
+2017-10-28T00:04:32.612+0200 [WARN ] plugin: error closing client during Kill: err="connection is shut down"
