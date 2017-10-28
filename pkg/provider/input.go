@@ -16,34 +16,34 @@ func resourceGraylogInput() *schema.Resource {
 		Delete: resourceGraylogInputDelete,
 
 		Schema: map[string]*schema.Schema{
-			"title": &schema.Schema{
+			"title": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
-			"type": &schema.Schema{
+			"type": {
 				Type:     schema.TypeString,
-				Required: true,
+				Computed: true,
 			},
-			"global": &schema.Schema{
+			"global": {
 				Type:     schema.TypeBool,
 				Optional: true,
 				Default:  true,
 			},
-			"node": &schema.Schema{
+			"node": {
 				Type:     schema.TypeString,
 				Optional: true,
 			},
-			"gelf_udp": &schema.Schema{
+			"gelf_udp": {
 				Type:     schema.TypeSet,
 				Optional: true,
 
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
-						"port": &schema.Schema{
+						"port": {
 							Type:     schema.TypeInt,
 							Required: true,
 						},
-						"bind_address": &schema.Schema{
+						"bind_address": {
 							Type:     schema.TypeString,
 							Optional: true,
 							Default:  "0.0.0.0",
@@ -71,7 +71,7 @@ func resourceGraylogInputCreate(d *schema.ResourceData, meta interface{}) error 
 
 	d.SetId(response.ID)
 
-	return nil
+	return resourceGraylogInputRead(d, meta)
 }
 
 func resourceGraylogInputRead(d *schema.ResourceData, meta interface{}) error {
@@ -85,6 +85,11 @@ func resourceGraylogInputRead(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	d.Set("title", input.Title)
+	d.Set("global", input.Global)
+	d.Set("name", input.Name)
+	d.Set("type", input.Type)
+	d.Set("attributes", input.Attributes)
+	d.Set("static_fields", input.StaticFields)
 
 	return nil
 }
@@ -98,7 +103,12 @@ func resourceGraylogInputUpdate(d *schema.ResourceData, meta interface{}) error 
 	}
 
 	url := fmt.Sprintf("/api/system/inputs/%s", d.Id())
-	return client.Put(url, request, nil)
+	err = client.Put(url, request, nil)
+	if err != nil {
+		return err
+	}
+
+	return resourceGraylogInputRead(d, meta)
 }
 
 func resourceGraylogInputDelete(d *schema.ResourceData, meta interface{}) error {

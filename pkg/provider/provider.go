@@ -2,28 +2,29 @@ package provider
 
 import (
 	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform/terraform"
 	"github.com/rebuy-de/terraform-provider-graylog/pkg/graylog"
 )
 
-func Provider() *schema.Provider {
+func Provider() terraform.ResourceProvider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
 			"server_url": {
 				Type:        schema.TypeString,
 				Optional:    true,
-				Default:     "http://localhost:9000",
+				DefaultFunc: schema.EnvDefaultFunc("GRAYLOG_SERVER_URL", "http://localhost:9000"),
 				Description: "URL to the Graylog API",
 			},
 			"username": {
 				Type:        schema.TypeString,
 				Optional:    true,
-				Default:     "admin",
+				DefaultFunc: schema.EnvDefaultFunc("GRAYLOG_USERNAME", "admin"),
 				Description: "Username for the Graylog API",
 			},
 			"password": {
 				Type:        schema.TypeString,
 				Optional:    true,
-				Default:     "http://localhost:9000",
+				DefaultFunc: schema.EnvDefaultFunc("GRAYLOG_PASSWORD", "admin"),
 				Description: "Password for the Graylog API",
 			},
 		},
