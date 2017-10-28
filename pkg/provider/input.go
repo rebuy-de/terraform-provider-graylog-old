@@ -20,6 +20,10 @@ func resourceGraylogInput() *schema.Resource {
 				Type:     schema.TypeString,
 				Required: true,
 			},
+			"name": {
+				Type:     schema.TypeString,
+				Computed: true,
+			},
 			"type": {
 				Type:     schema.TypeString,
 				Computed: true,
@@ -38,6 +42,48 @@ func resourceGraylogInput() *schema.Resource {
 				Optional: true,
 
 				Elem: &schema.Resource{
+					// I didn't find any documentation about the GELF UDP input configuration.
+					// Therefore we have to add options as needed.
+					Schema: map[string]*schema.Schema{
+						"port": {
+							Type:     schema.TypeInt,
+							Required: true,
+						},
+						"bind_address": {
+							Type:     schema.TypeString,
+							Optional: true,
+							Default:  "0.0.0.0",
+						},
+					},
+				},
+			},
+			"gelf_tcp": {
+				Type:     schema.TypeSet,
+				Optional: true,
+
+				Elem: &schema.Resource{
+					// I didn't find any documentation about the GELF TCP input configuration.
+					// Therefore we have to add options as needed.
+					Schema: map[string]*schema.Schema{
+						"port": {
+							Type:     schema.TypeInt,
+							Required: true,
+						},
+						"bind_address": {
+							Type:     schema.TypeString,
+							Optional: true,
+							Default:  "0.0.0.0",
+						},
+					},
+				},
+			},
+			"beats": {
+				Type:     schema.TypeSet,
+				Optional: true,
+
+				Elem: &schema.Resource{
+					// I didn't find any documentation about the GELF TCP input configuration.
+					// Therefore we have to add options as needed.
 					Schema: map[string]*schema.Schema{
 						"port": {
 							Type:     schema.TypeInt,
@@ -125,18 +171,28 @@ func resourceGraylogInputGenerateCreateRequest(d *schema.ResourceData) (*types.S
 	}
 
 	gelfUDP := d.Get("gelf_udp").(*schema.Set)
+	gelfTCP := d.Get("gelf_tcp").(*schema.Set)
+	beats := d.Get("beats").(*schema.Set)
 
 	blockCount := 0
 	blockCount += gelfUDP.Len()
+	blockCount += gelfTCP.Len()
+	blockCount += beats.Len()
 
 	if blockCount != 1 {
-		return nil, fmt.Errorf("graylog_input expects exactly one 'gelf_udp' block")
+		return nil, fmt.Errorf("graylog_input expects exactly one block of 'gelf_udp', 'gelf_tcp' or 'beats'")
 	}
 
 	switch {
 	case gelfUDP.Len() == 1:
 		request.Type = "org.graylog2.inputs.gelf.udp.GELFUDPInput"
 		request.Configuration = gelfUDP.List()[0].(map[string]interface{})
+	case gelfTCP.Len() == 1:
+		request.Type = "org.graylog2.inputs.gelf.tcp.GELFTCPInput"
+		request.Configuration = gelfTCP.List()[0].(map[string]interface{})
+	case beats.Len() == 1:
+		request.Type = "org.graylog.plugins.beats.BeatsInput"
+		request.Configuration = beats.List()[0].(map[string]interface{})
 	default:
 		// shouldn't happen, because the blockCount got checked before
 		panic("unexpected block count")

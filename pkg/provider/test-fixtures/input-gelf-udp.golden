@@ -1,5 +1,5 @@
 {
-    "Title": "GELF UDP",
+    "Title": "gelf-udp",
     "Global": true,
     "Name": "GELF UDP",
     "Type": "org.graylog2.inputs.gelf.udp.GELFUDPInput",
