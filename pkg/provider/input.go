@@ -126,9 +126,7 @@ func resourceGraylogInputRead(d *schema.ResourceData, meta interface{}) error {
 	input := new(types.SystemInputSummary)
 	url := fmt.Sprintf("/api/system/inputs/%s", d.Id())
 	err := client.Get(url, input)
-	if err != nil {
-		return err
-	}
+	_ = err // TODO: Gracefully handle 404s
 
 	d.Set("title", input.Title)
 	d.Set("global", input.Global)
