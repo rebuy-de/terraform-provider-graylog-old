@@ -16,6 +16,10 @@ func resourceGraylogInput() *schema.Resource {
 		Update: resourceGraylogInputUpdate,
 		Delete: resourceGraylogInputDelete,
 
+		Importer: &schema.ResourceImporter{
+			State: schema.ImportStatePassthrough,
+		},
+
 		Schema: map[string]*schema.Schema{
 			"title": {
 				Type:     schema.TypeString,
