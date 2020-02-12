@@ -72,6 +72,36 @@ func TestAccInput_gelfTCP(t *testing.T) {
 	})
 }
 
+func TestAccInput_gelfHTTP(t *testing.T) {
+	var title string
+	resource.Test(t, resource.TestCase{
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccInputCheckDestroy(title),
+		Steps: []resource.TestStep{
+			{
+				Config: testAccInputConfig_gelfHTTP,
+				Check: resource.ComposeTestCheckFunc(
+					testAccInputCheck("graylog_input.gelf_http", &title, true),
+					resource.TestCheckResourceAttr(
+						"graylog_input.gelf_http", "title", "gelf-http"),
+					resource.TestCheckResourceAttr(
+						"graylog_input.gelf_http", "global", "true"),
+					resource.TestCheckResourceAttr(
+						"graylog_input.gelf_http", "type",
+						"org.graylog2.inputs.gelf.http.GELFTCPInput"),
+					resource.TestCheckResourceAttr(
+						"graylog_input.gelf_http", "gelf_http.#", "1"),
+					resource.TestCheckResourceAttr(
+						"graylog_input.gelf_http", "gelf_http.518599376.port", "12202"),
+					resource.TestCheckResourceAttr(
+						"graylog_input.gelf_http", "gelf_tcp.518599376.bind_address", "0.0.0.0"),
+				),
+			},
+		},
+	})
+}
+
 func TestAccInput_beats(t *testing.T) {
 	var title string
 	resource.Test(t, resource.TestCase{
@@ -231,6 +261,18 @@ resource "graylog_input" "gelf_tcp" {
   global = true
 
   gelf_tcp {
+    bind_address = "0.0.0.0"
+    port         = 12201
+  }
+}
+`
+
+const testAccInputConfig_gelfHTTP = `
+resource "graylog_input" "gelf_http" {
+  title  = "gelf-http"
+  global = true
+
+  gelf_http {
     bind_address = "0.0.0.0"
     port         = 12201
   }

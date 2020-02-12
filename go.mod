@@ -9,6 +9,7 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk v1.6.0
 	github.com/mattn/go-colorable v0.1.2 // indirect
 	github.com/mattn/go-isatty v0.0.9 // indirect
+	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.4.2
 	github.com/zclconf/go-cty v1.2.1 // indirect
 )

@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/pkg/errors"
 
 	"github.com/rebuy-de/terraform-provider-graylog/pkg/graylog"
 	"github.com/rebuy-de/terraform-provider-graylog/pkg/types"
@@ -102,6 +103,26 @@ func resourceGraylogInput() *schema.Resource {
 					},
 				},
 			},
+			"gelf_http": {
+				Type:     schema.TypeSet,
+				Optional: true,
+
+				Elem: &schema.Resource{
+					// I didn't find any documentation about the GELF TCP input configuration.
+					// Therefore we have to add options as needed.
+					Schema: map[string]*schema.Schema{
+						"port": {
+							Type:     schema.TypeInt,
+							Required: true,
+						},
+						"bind_address": {
+							Type:     schema.TypeString,
+							Optional: true,
+							Default:  "0.0.0.0",
+						},
+					},
+				},
+			},
 		},
 	}
 }
@@ -140,6 +161,24 @@ func resourceGraylogInputRead(d *schema.ResourceData, meta interface{}) error {
 	d.Set("attributes", input.Attributes)
 	d.Set("static_fields", input.StaticFields)
 
+	switch input.Type {
+	case "org.graylog2.inputs.gelf.udp.GELFUDPInput":
+		d.Set("gelf_udp", []interface{}{input.Attributes})
+	case "org.graylog2.inputs.gelf.tcp.GELFTCPInput":
+		d.Set("gelf_tcp", []interface{}{input.Attributes})
+	case "org.graylog.plugins.beats.BeatsInput":
+		d.Set("beats", []interface{}{input.Attributes})
+	case "org.graylog2.inputs.gelf.http.GELFHttpInput":
+		d.Set("gelf_http", []interface{}{
+			map[string]interface{}{
+				"port":         input.Attributes["port"],
+				"bind_address": input.Attributes["bind_address"],
+			},
+		})
+	default:
+		return errors.Errorf("unknown type %s", input.Type)
+	}
+
 	return nil
 }
 
@@ -173,14 +212,18 @@ func resourceGraylogInputGenerateCreateRequest(d *schema.ResourceData) (*types.S
 		Node:   d.Get("node").(string),
 	}
 
-	gelfUDP := d.Get("gelf_udp").(*schema.Set)
-	gelfTCP := d.Get("gelf_tcp").(*schema.Set)
-	beats := d.Get("beats").(*schema.Set)
+	var (
+		beats    = d.Get("beats").(*schema.Set)
+		gelfHTTP = d.Get("gelf_http").(*schema.Set)
+		gelfTCP  = d.Get("gelf_tcp").(*schema.Set)
+		gelfUDP  = d.Get("gelf_udp").(*schema.Set)
+	)
 
 	blockCount := 0
-	blockCount += gelfUDP.Len()
-	blockCount += gelfTCP.Len()
 	blockCount += beats.Len()
+	blockCount += gelfHTTP.Len()
+	blockCount += gelfTCP.Len()
+	blockCount += gelfUDP.Len()
 
 	if blockCount != 1 {
 		return nil, fmt.Errorf("graylog_input expects exactly one block of 'gelf_udp', 'gelf_tcp' or 'beats'")
@@ -196,6 +239,9 @@ func resourceGraylogInputGenerateCreateRequest(d *schema.ResourceData) (*types.S
 	case beats.Len() == 1:
 		request.Type = "org.graylog.plugins.beats.BeatsInput"
 		request.Configuration = beats.List()[0].(map[string]interface{})
+	case gelfHTTP.Len() == 1:
+		request.Type = "org.graylog2.inputs.gelf.http.GELFHttpInput"
+		request.Configuration = gelfHTTP.List()[0].(map[string]interface{})
 	default:
 		// shouldn't happen, because the blockCount got checked before
 		panic("unexpected block count")

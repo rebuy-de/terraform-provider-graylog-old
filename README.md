@@ -120,19 +120,6 @@ The following attributes are exported:
 
 ## Developing
 
-### Dependencies
-
-This project uses [Glide](https://github.com/Masterminds/glide) for dependency
-management. Dependencies automaticaly get managed during the build. To add a dependency you just need to run `glide get example.com/my/pkg`.
-
-### Building from Source
-
-The build is configured by a Makefile. To build a binary you need to run:
-
-```
-make build
-```
-
 ### Testing
 
 The test mainly consist of acceptance tests. To run them you need a disposable
@@ -141,14 +128,5 @@ Graylog instance. You can easily create this via Docker. The script in `examples
 To start the tests you need to confure the environment variables and then run:
 
 ```
-make testacc
+TF_ACC=1 go test . -v
 ```
-
-These acceptance test will automaticaly executed during our Travis build.
-
-### Contibuting
-
-You can contribute to aws-nuke by forking this repository, making your changes
-and creating a Pull Request against our repository. If you are unsure how to
-solve a problem or have other questions about a contributions, please create a
-GitHub issue.
