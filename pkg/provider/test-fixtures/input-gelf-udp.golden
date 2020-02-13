@@ -1,0 +1,11 @@
+{
+    "Title": "gelf-udp",
+    "Global": true,
+    "Name": "GELF UDP",
+    "Type": "org.graylog2.inputs.gelf.udp.GELFUDPInput",
+    "Attributes": {
+        "bind_address": "0.0.0.0",
+        "port": 22201
+    },
+    "static_fields": {}
+}

@@ -1,5 +1,0 @@
-package: github.com/rebuy-de/terraform-provider-graylog
-import:
-- package: github.com/Sirupsen/logrus
-  version: ^0.11.2
-- package: github.com/spf13/cobra

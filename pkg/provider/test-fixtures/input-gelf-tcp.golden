@@ -1,0 +1,11 @@
+{
+    "Title": "gelf-tcp",
+    "Global": true,
+    "Name": "GELF TCP",
+    "Type": "org.graylog2.inputs.gelf.tcp.GELFTCPInput",
+    "Attributes": {
+        "bind_address": "0.0.0.0",
+        "port": 12201
+    },
+    "static_fields": {}
+}
