@@ -38,6 +38,7 @@ func (c *Client) do(method string, url string, reqValue, respValue interface{}) 
 	}
 
 	req.SetBasicAuth(c.Username, c.Password)
+	req.Header.Set("X-Requested-By", "github.com/rebuy-de/terraform-provider-graylog")
 
 	if reqValue != nil {
 		buf := new(bytes.Buffer)
