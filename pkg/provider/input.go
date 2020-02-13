@@ -88,7 +88,7 @@ func resourceGraylogInput() *schema.Resource {
 				Optional: true,
 
 				Elem: &schema.Resource{
-					// I didn't find any documentation about the GELF TCP input configuration.
+					// I didn't find any documentation about the beats input configuration.
 					// Therefore we have to add options as needed.
 					Schema: map[string]*schema.Schema{
 						"port": {
@@ -108,7 +108,7 @@ func resourceGraylogInput() *schema.Resource {
 				Optional: true,
 
 				Elem: &schema.Resource{
-					// I didn't find any documentation about the GELF TCP input configuration.
+					// I didn't find any documentation about the GELF Http input configuration.
 					// Therefore we have to add options as needed.
 					Schema: map[string]*schema.Schema{
 						"port": {
