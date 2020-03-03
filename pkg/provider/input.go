@@ -152,7 +152,13 @@ func resourceGraylogInputRead(d *schema.ResourceData, meta interface{}) error {
 	input := new(types.SystemInputSummary)
 	url := fmt.Sprintf("/api/system/inputs/%s", d.Id())
 	err := client.Get(url, input)
-	_ = err // TODO: Gracefully handle 404s
+
+	if graylog.IsStatusCodeError(err, 404) {
+		d.SetId("")
+		return nil
+	} else if err != nil {
+		return err
+	}
 
 	d.Set("title", input.Title)
 	d.Set("global", input.Global)
@@ -176,7 +182,7 @@ func resourceGraylogInputRead(d *schema.ResourceData, meta interface{}) error {
 			},
 		})
 	default:
-		return errors.Errorf("unknown type %s", input.Type)
+		return errors.Errorf("unknown type '%s'", input.Type)
 	}
 
 	return nil

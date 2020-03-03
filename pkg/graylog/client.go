@@ -18,6 +18,21 @@ const (
 	DELETE = "DELETE"
 )
 
+type StatusCodeError int
+
+func (err StatusCodeError) Error() string {
+	return fmt.Sprintf("unexpected status code %d", int(err))
+}
+
+func IsStatusCodeError(err error, code int) bool {
+	serr, ok := err.(StatusCodeError)
+	if !ok {
+		return false
+	}
+
+	return int(serr) == code
+}
+
 type Client struct {
 	Username  string
 	Password  string
@@ -59,7 +74,7 @@ func (c *Client) do(method string, url string, reqValue, respValue interface{}) 
 
 	if resp.StatusCode/100 != 2 {
 		log.Debug(ReaderToString(resp.Body))
-		return fmt.Errorf("Unexpected status %d", resp.StatusCode)
+		return StatusCodeError(resp.StatusCode)
 	}
 
 	if respValue != nil {

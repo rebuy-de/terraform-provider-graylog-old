@@ -120,13 +120,27 @@ The following attributes are exported:
 
 ## Developing
 
-### Testing
+### Local Development
 
-The test mainly consist of acceptance tests. To run them you need a disposable
-Graylog instance. You can easily create this via Docker. The script in `examples/run-graylog.sh` can be used to create a ready Graylog instance.
+For local development you might want to test your binaries against a real
+Graylog instance. To do this, you can use the Dockerfile that is used by the
+e2e test.
 
-To start the tests you need to confure the environment variables and then run:
+You need to build the image and then run it:
 
 ```
-TF_ACC=1 go test . -v
+docker build -t graylog-all-in-one e2e/docker
+docker run --rm -it -p 127.0.0.1:9000:9000 graylog-all-in-one
+```
+
+The URL of the Graylog instance is `http://localhost:9000` and username and
+password are both `admin`.
+
+Afterwards you can use this Graylog instance with the example templates in
+`e2e/example`. Make sure that the provider is built and Terraform finds it:
+
+```
+./buildutil
+cd e2e/example
+terraform init -plugin-dir ../../dist
 ```
