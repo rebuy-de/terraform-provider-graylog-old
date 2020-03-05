@@ -1,0 +1,16 @@
+language: minimal
+
+services:
+- docker
+
+script:
+- docker build -t terraform-provider-graylog .
+- docker run
+    --rm -t --net=host
+    -v /var/run/docker.sock:/var/run/docker.sock
+    -v $TRAVIS_BUILD_DIR:/terraform-provider-graylog
+    -w /terraform-provider-graylog
+    -e ACCEPTANCE_TEST=true
+    -e TERRAFORM_PLUGIN_DIR=/build/dist
+    terraform-provider-graylog
+    go test -v ./e2e
